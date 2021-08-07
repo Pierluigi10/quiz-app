@@ -7,4 +7,7 @@ const answers = document.querySelectorAll("answers");
 const scoreSpan = document.querySelector("#score");
 const buttonNext = document.querySelector(".buttonNext");
 
-
+buttonStart.addEventListener("click", () => {
+  welcomeBox.style.display = "none";
+  container.style.display = "grid";
+});
