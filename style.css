@@ -97,3 +97,19 @@ body {
   height: 100%;
   margin-bottom: 5px;
 }
+
+.answer_button {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: rgb(233, 233, 233);
+}
+
+.answer_button.valid {
+  border: 20px solud rgb(40, 133, 240);
+}
+
+.answer_button.invalid {
+  border: 20px solud tomato;
+}
