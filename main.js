@@ -53,6 +53,7 @@ const questions = [
 
 //first question must be with index =0.
 let firstQuestion = 0;
+let score = 0;
 
 //button to change page (welcomeBox receives display none and cointainer display grid)
 buttonStart.addEventListener("click", () => {
@@ -76,4 +77,17 @@ const oneQuestion = (index) => {
   });
 };
 
-const checkAnswer = ()=> {}
+const checkAnswer = (e) => {
+  const allAnswers = document.querySelectorAll(".answerButton");
+  const answerBoolean = e.target.dataset.isCorrect;
+  if (answerBoolean == "true") {
+    e.target.classList.add("valid");
+    score++;
+    scoreSpan.textContent = score;
+  } else {
+    e.target.classList.add("invalid");
+  }
+  allAnswers.forEach((element) => {
+    element.disabled = true;
+  });
+};
