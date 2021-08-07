@@ -10,7 +10,15 @@ const buttonNext = document.querySelector(".buttonNext");
 //Questions with answers
 const questions = [
   {
-    question: "What is JavaScript?",
+    question: "What is the correct article of the word 'Sintax'?",
+    answers: [
+      { text: "der", isAnswer: false },
+      { text: "die", isAnswer: true },
+      { text: "das", isAnswer: false },
+    ],
+  },
+  {
+    question: "What is the correct article of the word 'Setting?",
     answers: [
       { text: "der", isAnswer: false },
       { text: "die", isAnswer: false },
@@ -18,7 +26,15 @@ const questions = [
     ],
   },
   {
-    question: "2What is JavaScript?",
+    question: "What is the correct article of the word 'Design'?",
+    answers: [
+      { text: "das", isAnswer: true },
+      { text: "der", isAnswer: false },
+      { text: "die", isAnswer: false },
+    ],
+  },
+  {
+    question: "What is the correct article of the word 'Plug-in'?",
     answers: [
       { text: "der", isAnswer: false },
       { text: "die", isAnswer: false },
@@ -26,35 +42,43 @@ const questions = [
     ],
   },
   {
-    question: "3What is JavaScript?",
+    question: "What is the correct article of the word 'Workshop'?",
     answers: [
-      { text: "der", isAnswer: false },
+      { text: "der", isAnswer: true },
       { text: "die", isAnswer: false },
-      { text: "das", isAnswer: true },
+      { text: "das", isAnswer: false },
     ],
   },
   {
-    question: "4What is JavaScript?",
+    question: "What is the correct article of the word 'Pull'?",
     answers: [
-      { text: "der", isAnswer: false },
+      { text: "das", isAnswer: false },
+      { text: "der", isAnswer: true },
       { text: "die", isAnswer: false },
-      { text: "das", isAnswer: true },
     ],
   },
   {
-    question: "5What is JavaScript?",
+    question: "What is the correct article of the word 'Stack'?",
     answers: [
-      { text: "der", isAnswer: false },
+      { text: "das", isAnswer: false },
+      { text: "der", isAnswer: true },
       { text: "die", isAnswer: false },
-      { text: "das", isAnswer: true },
     ],
   },
   {
-    question: "6What is JavaScript?",
+    question: "What is the correct article of the word 'Library'?",
     answers: [
       { text: "der", isAnswer: false },
+      { text: "die", isAnswer: true },
+      { text: "das", isAnswer: false },
+    ],
+  },
+  {
+    question: "What is the correct article of the word 'Cache'?",
+    answers: [
+      { text: "der", isAnswer: true },
       { text: "die", isAnswer: false },
-      { text: "das", isAnswer: true },
+      { text: "das", isAnswer: false },
     ],
   },
 ];
@@ -88,7 +112,7 @@ const oneQuestion = (index) => {
 const checkAnswer = (e) => {
   const allAnswers = document.querySelectorAll(".answerButton");
   const answerBoolean = e.target.dataset.isCorrect;
-  if (answerBoolean == "true") {
+  if (answerBoolean === "true") {
     e.target.classList.add("valid");
     score++;
     scoreSpan.textContent = score;
@@ -106,7 +130,7 @@ buttonNext.addEventListener("click", () => {
     nextQuestion = questions.length + nextQuestion;
   }
   if (firstQuestion === nextQuestion) {
-    questionParagraph.textContent = "Quiz done!";
+    questionParagraph.textContent = "Quiz done! Your score is: " + score;
     buttonNext.style.display = "none";
     answersContainer.style.display = "none";
     return;
