@@ -49,10 +49,18 @@ const questions = [
       { text: "das", isAnswer: true },
     ],
   },
+  {
+    question: "6What is JavaScript?",
+    answers: [
+      { text: "der", isAnswer: false },
+      { text: "die", isAnswer: false },
+      { text: "das", isAnswer: true },
+    ],
+  },
 ];
 
-//first question must be with index =0.
-let firstQuestion = 0;
+let firstQuestion = Math.floor(Math.random() * 5);
+nextQuestion = firstQuestion;
 let score = 0;
 
 //button to change page (welcomeBox receives display none and cointainer display grid)
@@ -65,7 +73,7 @@ buttonStart.addEventListener("click", () => {
 });
 
 const oneQuestion = (index) => {
-  const question = questions[firstQuestion];
+  const question = questions[index];
   questionParagraph.textContent = question.question;
   question.answers.forEach((answer) => {
     const button = document.createElement("button");
@@ -91,3 +99,20 @@ const checkAnswer = (e) => {
     element.disabled = true;
   });
 };
+
+buttonNext.addEventListener("click", () => {
+  nextQuestion--;
+  if (nextQuestion < 0) {
+    nextQuestion = questions.length + nextQuestion;
+  }
+  if (firstQuestion === nextQuestion) {
+    questionParagraph.textContent = "Quiz done!";
+    buttonNext.style.display = "none";
+    answersContainer.style.display = "none";
+    return;
+  }
+  questionParagraph.textContent = "";
+  answersContainer.textContent = "";
+  // console.log(nextQuestion)
+  oneQuestion(nextQuestion);
+});
