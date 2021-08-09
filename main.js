@@ -3,7 +3,7 @@ const welcomeBox = document.querySelector(".welcome");
 const buttonStart = document.querySelector(".buttonStart");
 const questionParagraph = document.querySelector(".question");
 const answersContainer = document.querySelector(".answers");
-const answers = document.querySelectorAll("answers");
+// const answers = document.querySelectorAll("answers");
 const scoreSpan = document.querySelector("#score");
 const buttonNext = document.querySelector(".buttonNext");
 
@@ -83,6 +83,7 @@ const questions = [
   },
 ];
 
+// let firstQuestion = 0 // start from 0 position
 let firstQuestion = Math.floor(Math.random() * 5);
 nextQuestion = firstQuestion;
 let score = 0;
@@ -100,10 +101,10 @@ const oneQuestion = (index) => {
   const question = questions[index];
   questionParagraph.textContent = question.question;
   question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.classList.add("answerButton");
-    button.append(answer.text);
-    answersContainer.appendChild(button);
+    const button = document.createElement("button"); // Create a <button> element
+    button.classList.add("answerButton"); //property to add CSS classes on an element
+    button.append(answer.text); // Append text not a button
+    answersContainer.appendChild(button); // Append <button> to <body>
     button.dataset.isCorrect = answer.isAnswer;
     button.addEventListener("click", checkAnswer);
   });
@@ -111,7 +112,7 @@ const oneQuestion = (index) => {
 
 const checkAnswer = (e) => {
   const allAnswers = document.querySelectorAll(".answerButton");
-  const answerBoolean = e.target.dataset.isCorrect;
+  const answerBoolean = e.target.dataset.isCorrect; // target event property returns the element that triggered the event
   if (answerBoolean === "true") {
     e.target.classList.add("valid");
     score++;
@@ -135,7 +136,7 @@ buttonNext.addEventListener("click", () => {
     answersContainer.style.display = "none";
     return;
   }
-  questionParagraph.textContent = "";
+  // questionParagraph.textContent = "";
   answersContainer.textContent = "";
   // console.log(nextQuestion)
   oneQuestion(nextQuestion);

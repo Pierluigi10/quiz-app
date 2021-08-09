@@ -18,15 +18,6 @@ body {
   display: none;
 }
 
-.score {
-  font-size: 40px;
-  width: 10vw;
-  font-weight: 700;
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 45%;
-}
 
 .welcome {
   height: 25vh;
@@ -51,6 +42,17 @@ body {
   font-size: 18px;
   background: rgb(19, 220, 235);
 }
+
+.score {
+  font-size: 40px;
+  width: 10vw;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 45%;
+}
+
 
 .questions {
   height: 99%;
