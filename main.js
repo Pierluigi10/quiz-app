@@ -81,6 +81,14 @@ const questions = [
       { text: "das", isAnswer: false },
     ],
   },
+  {
+    question: "What is the correct article of the word 'Extension'?",
+    answers: [
+      { text: "der", isAnswer: false },
+      { text: "die", isAnswer: true },
+      { text: "das", isAnswer: false },
+    ],
+  },
 ];
 
 // let firstQuestion = 0 // start from 0 position
